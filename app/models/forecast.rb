@@ -1,56 +1,13 @@
 class Forecast
-  attr_reader :latitude, :longitude, :zip_code
-
-  # def self.create(params)
-  #   new(**params).create
-  # end
-
-  # def self.find_or_create_by(params)
-  #   new(**params)
-  # end
+  attr_reader :weather_api_response, :zip_code
+  delegate :cache_hit?, :current, :forecast, :updated_at, to: :weather_api_response
 
   def initialize(zip_code:, latitude: nil, longitude: nil)
-    # @latitude = latitude
-    # @longitude = longitude
     @zip_code = zip_code
+    @weather_api_response = WeatherApi.call(zip_code:)
   end
 
-  # def create
-  #   # Retreive and cache forecast
-  #   # self
-  # end
-
-  def current
-    forecast.current
+  def window
+    WeatherApi::FORECAST_DAYS
   end
-
-  def daily
-    weather.forecast
-    # [
-    #   {
-    #     high:,
-    #     low:,
-    #     date,
-    #   }
-    # ]
-  end
-
-  # def weather_service_response
-  #   data = Rails.cache.fetch("#{cache_key}/#{__method__}/#{zip_code}", expires_in: CACHE_EXPIRY)
-
-  #   if data
-  #     @cached = true
-  #   else
-  #     data = Rails.cache.fetch("#{cache_key}/#{__method__}/#{zip_code}", expires_in: CACHE_EXPIRY) do
-  #       WeatherService.new(zip_code:).call
-  #     end
-  #   end
-
-  #   data
-  # end
-
-  # def fetch_forecast_data
-  #   # Handle having lat/long
-  #   # Get (and cache) forecast from API
-  # end
 end

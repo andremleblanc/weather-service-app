@@ -1,7 +1,31 @@
 <div class="mx-auto md:w-2/3 w-full">
-  <%= tag.h1 t(".title", zip_code: @forecast.zip_code), class: "font-bold text-4xl" %>
-  Current
-  Forecast
-  Last Updated
-  <%= link_to "Back", root_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <%= tag.h1 t(".title", zip_code: @forecast.zip_code), class: "font-bold text-4xl py-3" %>
+
+  <div class="flex flex-row justify-between py-3">
+    <span class="text-5xl"><%= @forecast.current["temp_f"].to_i %> &deg;F</span>
+
+    <div class="flex flex-col text-right">
+      <%= local_time(Time.now) %>
+
+      <% if @forecast.cache_hit? %>
+        <span>Last Updated <%= local_time(@forecast.updated_at) %></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="py-3">
+    <div class="flex flex-row gap-3">
+      <% @forecast.forecast.each do |day| %>
+        <div class="flex flex-col flex-1 text-center">
+          <span class="font-bold"><%= day["date"].to_date.strftime("%a") %></span>
+          <span>  <%= day["data"]["maxtemp_f"].to_i %>&deg;
+           <%= day["data"]["mintemp_f"].to_i %>&deg;</span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex flex-col py-3 text-center">
+    <%= link_to "Back", root_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
 </div>

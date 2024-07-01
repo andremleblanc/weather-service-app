@@ -36,6 +36,9 @@ Things you may want to cover:
 - DRY Cache Key
 - Error handling on Weather Service API call
 - Test Caching
+- Rename forecast
+- Could keep wrapping responses
+- Compare other APIs
 
 ## Dependencies
 - Dependent on location lookup, could build table of zips -> lat/long to remove dependency

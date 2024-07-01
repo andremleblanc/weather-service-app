@@ -34,4 +34,6 @@ en:
       submit: Get Forecast
       title: Weather Service
     show:
+      high: High
+      low: Low
       title: Weather Results for %{zip_code}
