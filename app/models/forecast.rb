@@ -1,5 +1,5 @@
 class Forecast
-  CACHE_EXPIRY = 30.mins
+  CACHE_EXPIRY = 30.minutes
   attr_reader :cached, :latitude, :longitude, :zip_code
 
   # def self.create(params)
