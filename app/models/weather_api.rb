@@ -35,7 +35,7 @@ class WeatherApi
   end
 
   class Response
-    attr_reader :cache_hit, :current, :forecast, :updated_at
+    attr_reader :current, :forecast, :updated_at
 
     def initialize(cache_hit:, response:)
       @cache_hit = cache_hit
@@ -50,11 +50,11 @@ class WeatherApi
     end
 
     def cache_hit?
-      cache_hit
+      @cache_hit
     end
 
     def success?
-      success
+      @success
     end
   end
 end

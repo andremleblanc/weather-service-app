@@ -38,4 +38,5 @@ en:
       high: High
       last_updated_at: Last updated at
       low: Low
+      no_results: No results for this zip code, please check the formatting and try again.
       title: Weather Results for %{zip_code}
