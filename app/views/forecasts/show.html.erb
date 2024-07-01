@@ -5,10 +5,12 @@
     <span class="text-5xl"><%= @forecast.current["temp_f"].to_i %> &deg;F</span>
 
     <div class="flex flex-col text-right">
-      <%= local_time(Time.now) %>
+      <span>
+        <%= local_time(Time.now) %>
+      </span>
 
       <% if @forecast.cache_hit? %>
-        <span>Last Updated <%= local_time(@forecast.updated_at) %></span>
+        <span><%= t(".last_updated_at") %> <%= local_time(@forecast.updated_at) %></span>
       <% end %>
     </div>
   </div>

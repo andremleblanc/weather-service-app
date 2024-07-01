@@ -35,5 +35,6 @@ en:
       title: Weather Service
     show:
       high: High
+      last_updated_at: Last updated at
       low: Low
       title: Weather Results for %{zip_code}

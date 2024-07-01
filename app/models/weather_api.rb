@@ -45,7 +45,7 @@ class WeatherApi
         data = JSON.parse(response.body)
         @current = data["current"]
         @forecast = data["forecast"]["forecastday"].map { |e| { "date" => e["date"], "data" => e["day"] } }
-        @updated_at = data["current"]["last_updated"]
+        @updated_at = data["current"]["last_updated"].to_time
       end
     end
 
