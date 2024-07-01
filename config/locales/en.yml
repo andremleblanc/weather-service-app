@@ -33,6 +33,7 @@ en:
       address: Address
       submit: Get Forecast
       title: Weather Service
+      zip_code: Zip Code
     show:
       high: High
       last_updated_at: Last updated at

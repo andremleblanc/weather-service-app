@@ -26,6 +26,9 @@ Things you may want to cover:
 ## Setup
 - You'll need an Google Cloud API key in order to use the service, you can find instructions [here](https://developers.google.com/maps/documentation/javascript/place-autocomplete#get-started).
 
+## Development
+- Enable caching with 'rails dev:cache` to have weather calls cached locally.
+
 ## Todos
 - Add Rubocop
 - Test international
@@ -39,6 +42,7 @@ Things you may want to cover:
 - Rename forecast
 - Could keep wrapping responses
 - Compare other APIs
+- Better front end form error handling
 
 ## Dependencies
 - Dependent on location lookup, could build table of zips -> lat/long to remove dependency

@@ -18,14 +18,12 @@
       }
 
       // Set values on hidden fields.
-      document.getElementById("autocomplete_latitude").value = place.geometry.location.lat()
-      document.getElementById("autocomplete_longitude").value = place.geometry.location.lng()
-      document.getElementById("autocomplete_zip_code").value = zipCode
+      document.getElementById("zip_code").value = zipCode
     }
 
     function initAutocomplete() {
       const input = document.getElementById("address");
-      const options = { fields: ["address_components", "geometry"] };
+      const options = { fields: ["address_components",] };
       const autocomplete = new google.maps.places.Autocomplete(input, options);
 
       autocomplete.addListener("place_changed", () => { handlePlaceChanged(autocomplete) })
@@ -44,11 +42,12 @@
       <%= form.text_field :address, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
-    <%= form.hidden_field :autocomplete_latitude %>
-    <%= form.hidden_field :autocomplete_longitude %>
-    <%= form.hidden_field :autocomplete_zip_code %>
+    <div class="my-5">
+      <%= form.label :zip_code, "#{t(".zip_code")} *" %>
+      <%= form.text_field :zip_code, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full", required: true %>
+    </div>
 
-    <div class="inline">
+    <div class="flex flex-col py-3">
       <%= form.submit t(".submit"), class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
     </div>
   <% end %>
