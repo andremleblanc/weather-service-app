@@ -1,3 +1,41 @@
+<% content_for(:head) do %>
+  <script>
+    function handlePlaceChanged(autocomplete) {
+      place = autocomplete.getPlace()
+      console.log(place)
+
+      // Ensure values are reset each time Place changes.
+      let zipCode = ""
+
+      // Iterate through address components and set zip.
+      for (const component of place.address_components) {
+        const componentType = component.types[0]
+
+        switch(componentType) {
+          case "postal_code": {
+            zipCode = component.long_name
+          }
+        }
+      }
+
+      // Set values on hidden fields.
+      document.getElementById("autocomplete_latitude").value = place.geometry.location.lat()
+      document.getElementById("autocomplete_longitude").value = place.geometry.location.lng()
+      document.getElementById("autocomplete_zip_code").value = zipCode
+    }
+
+    function initAutocomplete() {
+      const input = document.getElementById("address");
+      const options = { fields: ["address_components", "geometry"] };
+      const autocomplete = new google.maps.places.Autocomplete(input, options);
+
+      autocomplete.addListener("place_changed", () => { handlePlaceChanged(autocomplete) })
+    }
+  </script>
+
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google.maps_api_key}&loading=async&libraries=places&callback=initAutocomplete", async: true %>
+<% end %>
+
 <div class="mx-auto md:w-2/3 w-full">
   <%= tag.h1 t(".title"), class: "font-bold text-4xl" %>
 
@@ -6,6 +44,10 @@
       <%= form.label :address, t(".address") %>
       <%= form.text_field :address, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
+
+    <%= form.hidden_field :autocomplete_latitude %>
+    <%= form.hidden_field :autocomplete_longitude %>
+    <%= form.hidden_field :autocomplete_zip_code %>
 
     <div class="inline">
       <%= form.submit t(".submit"), class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>

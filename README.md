@@ -23,6 +23,9 @@ Things you may want to cover:
 
 * ...
 
+## Setup
+- You'll need an Google Cloud API key in order to use the service, you can find instructions [here](https://developers.google.com/maps/documentation/javascript/place-autocomplete#get-started).
+
 ## Todos
 - Add Rubocop
 - Test international
