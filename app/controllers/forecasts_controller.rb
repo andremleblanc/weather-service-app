@@ -3,12 +3,12 @@ class ForecastsController < ApplicationController
   end
 
   def create
-    @forecast = Forecast.find_or_create_by(forecast_params)
+    # @forecast = Forecast.new(forecast_params)
     redirect_to forecast_path(@forecast.zip_code)
   end
 
   def show
-    @forecast = Forecast.find_or_create_by(zip_code: params[:zip_code])
+    @forecast = Forecast.new(zip_code: params[:zip_code])
   end
 
   private
