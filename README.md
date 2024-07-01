@@ -25,6 +25,13 @@ Things you may want to cover:
 
 ## Todos
 - Add Rubocop
+- Test international
+- Headless chrome
+- Component library
+- Bad input handling (bad zip, no match, etc.)
+
+## Dependencies
+- Dependent on location lookup, could build table of zips -> lat/long to remove dependency
 
 ## Decisions
 - Requiring an address for input instead of just zip code per the PRD.

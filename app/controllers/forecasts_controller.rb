@@ -8,5 +8,6 @@ class ForecastsController < ApplicationController
   end
 
   def show
+    @zip_code = params[:zip_code]
   end
 end
