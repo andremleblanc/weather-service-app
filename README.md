@@ -32,6 +32,8 @@ Things you may want to cover:
 - Headless chrome
 - Component library
 - Bad input handling (bad zip, no match, etc.)
+- Remove lat/long support
+- DRY Cache Key
 
 ## Dependencies
 - Dependent on location lookup, could build table of zips -> lat/long to remove dependency
@@ -40,3 +42,6 @@ Things you may want to cover:
 - Requiring an address for input instead of just zip code per the PRD.
 - Using SQLite and Memory store to keep this easier to run on other dev environments, but we'd want to do something different for a prod service.
 - View Components are out of scope
+
+## Followups
+- Support Celsius

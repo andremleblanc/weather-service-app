@@ -1,4 +1,7 @@
 <div class="mx-auto md:w-2/3 w-full">
-  <%= tag.h1 t(".title", zip_code: @zip_code), class: "font-bold text-4xl" %>
+  <%= tag.h1 t(".title", zip_code: @forecast.zip_code), class: "font-bold text-4xl" %>
+  Current
+  Forecast
+  Last Updated
   <%= link_to "Back", root_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
 </div>
