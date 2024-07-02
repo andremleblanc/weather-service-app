@@ -1,0 +1,37 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <%= tag.h1 t(".title", zip_code: @weather_report.zip_code), class: "font-bold text-4xl py-3" %>
+
+  <% if @weather_report.success? %>
+    <div class="flex flex-row justify-between py-3">
+      <span class="text-5xl"><%= @weather_report.current["temp_f"].to_i %> &deg;F</span>
+
+      <div class="flex flex-col text-right">
+        <span>
+          <%= local_time(Time.now) %>
+        </span>
+
+        <% if @weather_report.cache_hit? %>
+          <span><%= t(".last_updated_at") %> <%= local_time(@weather_report.updated_at) %></span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="py-3">
+      <div class="flex flex-row gap-3">
+        <% @weather_report.forecast.each do |day| %>
+          <div class="flex flex-col flex-1 text-center">
+            <span class="font-bold"><%= day["date"].to_date.strftime("%a") %></span>
+            <span>  <%= day["data"]["maxtemp_f"].to_i %>&deg;
+            <%= day["data"]["mintemp_f"].to_i %>&deg;</span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <%= t(".no_results") %>
+  <% end %>
+
+  <div class="flex flex-col py-3 text-center">
+    <%= link_to "Back", root_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+</div>
