@@ -28,10 +28,10 @@
 #       enabled: "ON"
 
 en:
-  forecasts:
+  weather_reports:
     new:
       address: Address
-      submit: Get Forecast
+      submit: Get Weather Report
       title: Weather Service
       zip_code: Zip Code
     show:

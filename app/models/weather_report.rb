@@ -1,4 +1,4 @@
-class Forecast
+class WeatherReport
   attr_reader :weather_api_response, :zip_code
   delegate :cache_hit?, :current, :forecast, :success?, :updated_at, to: :weather_api_response
 

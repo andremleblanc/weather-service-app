@@ -36,7 +36,7 @@
 <div class="mx-auto md:w-2/3 w-full">
   <%= tag.h1 t(".title"), class: "font-bold text-4xl" %>
 
-  <%= form_with url: forecasts_path do |form| %>
+  <%= form_with url: weather_reports_path do |form| %>
     <div class="my-5">
       <%= form.label :address, t(".address") %>
       <%= form.text_field :address, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
