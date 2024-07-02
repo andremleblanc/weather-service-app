@@ -3,7 +3,7 @@ require 'net/http'
 
 class WeatherApi
   CACHE_EXPIRY = 30.minutes
-  CACHE_KEY = "weather_api_responses"
+  CACHE_KEY = 'weather_api_responses'
   FORECAST_DAYS = 3
 
   attr_reader :zip_code
@@ -31,7 +31,7 @@ class WeatherApi
       end
     end
 
-    Response.new(cache_hit:, response: api_response,)
+    Response.new(cache_hit:, response: api_response)
   end
 
   class Response
@@ -41,12 +41,12 @@ class WeatherApi
       @cache_hit = cache_hit
       @success = response.is_a?(Net::HTTPSuccess)
 
-      if @success
-        data = JSON.parse(response.body)
-        @current = data["current"]
-        @forecast = data["forecast"]["forecastday"].map { |e| { "date" => e["date"], "data" => e["day"] } }
-        @updated_at = data["current"]["last_updated"].to_time
-      end
+      return unless @success
+
+      data = JSON.parse(response.body)
+      @current = data['current']
+      @forecast = data['forecast']['forecastday'].map { |e| { 'date' => e['date'], 'data' => e['day'] } }
+      @updated_at = data['current']['last_updated'].to_time
     end
 
     def cache_hit?

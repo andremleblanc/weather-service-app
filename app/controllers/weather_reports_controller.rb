@@ -1,6 +1,5 @@
 class WeatherReportsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     redirect_to weather_report_path(params[:zip_code])

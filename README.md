@@ -1,33 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 ## Setup
-- You'll need an Google Cloud API key in order to use the service, you can find instructions [here](https://developers.google.com/maps/documentation/javascript/place-autocomplete#get-started).
+- A `bundle install` should get you most of the way there.
+- Enable caching with `rails dev:cache` to have weather calls cached locally.
+- `bin/dev` to run the server.
+- `rails test:all` to run unit and system tests.
 
-## Development
-- Enable caching with 'rails dev:cache` to have weather calls cached locally.
+### Optional
+- To get Autocomplete working, you'll need a [Google Cloud API key](https://developers.google.com/maps/documentation/javascript/place-autocomplete#get-started).
+
+## Tech Stack
+- Ruby on Rails
+- TailwindCSS
 
 ## Todos
 - Add Rubocop
