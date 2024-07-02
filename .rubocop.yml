@@ -1,0 +1,70 @@
+require:
+  - rubocop-capybara
+  - rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - db/schema.rb
+    - bin/**/*
+
+Layout/LineLength:
+  Enabled: false
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Lint/RedundantCopDisableDirective:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: required
+
+Rails/ActionOrder:
+  ExpectedOrder:
+    - index
+    - new
+    - show
+    - create
+    - edit
+    - update
+    - destroy
+
+Rails/BulkChangeTable:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: never
+  SafeAutoCorrect: true
+
+Style/MutableConstant:
+  Enabled: true
+  SafeAutoCorrect: true
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
