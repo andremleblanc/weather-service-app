@@ -24,7 +24,6 @@
 - Validate zip codes before fetching a weather report.
 - Add tests for caching, perhaps `solid_cache` with database cleaning, perhaps a custom cache store allowing inspection, etc.
 - Add support for Celsius.
-- Add headless Chrome for system tests.
 - Consider a component library like ViewComponents
 - Improve frontend error handling
 - Consider further building out `WeatherApi::Response` to prevent directly accessing hash in other parts of the system.

@@ -1,3 +1,7 @@
+# WeatherApi provides an interface to the underlying API for fetching
+# forecasting data. The primary interaction point is the .call method,
+# which returns a WeatherApi::Response object for further use.
+
 require "uri"
 require "net/http"
 
