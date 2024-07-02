@@ -13,30 +13,19 @@
 - Ruby on Rails
 - TailwindCSS
 
-## Todos
-- Add Rubocop
-- Test international
-- Headless chrome
-- Component library
-- Bad input handling (bad zip, no match, etc.)
-- Remove lat/long support
-- DRY Cache Key
-- Error handling on Weather Service API call
-- Test Caching
-- Rename forecast
-- Could keep wrapping responses
-- Compare other APIs
-- Better front end form error handling
-- Validate zip before lookup
+## Notes
 
-## Dependencies
-- Dependent on location lookup, could build table of zips -> lat/long to remove dependency
+- I am prompting for an address for input instead of just zip code per the PRD.
+- I scoped creeped a little with the Google Autocomplete feature. I wanted to make it easy for users to put their address in without having to do a multi-part form. Additionally, I had planned on using the lat/long from the response, but used a different weather service than originally intended that provided lat/long and the current days high/low.
+- I didn't actually use the db, but we'd likely want to swap from SQLite to MySql, Postgres, or something else for a production app.
 
-## Decisions
-- Requiring an address for input instead of just zip code per the PRD.
-- Using SQLite and Memory store to keep this easier to run on other dev environments, but we'd want to do something different for a prod service.
-- View Components are out of scope
-- I may have expanded scope with the Google Autocomplete stuff, I was originally going to use it to get lat/long for the weather API I had planned on using, but ended up using a different API that included geocoding and current day high/low.
-
-## Followups
-- Support Celsius
+### Follow up features (no particular order)
+- Pick a suitable cache_store for production (Solid Cache, MemCache, Redis, etc)
+- Validate zip codes before fetching a weather report.
+- Add tests for caching, perhaps `solid_cache` with database cleaning, perhaps a custom cache store allowing inspection, etc.
+- Add support for Celsius.
+- Add headless Chrome for system tests.
+- Consider a component library like ViewComponents
+- Improve frontend error handling
+- Consider further building out `WeatherApi::Response` to prevent directly accessing hash in other parts of the system.
+- Compare other APIs.
