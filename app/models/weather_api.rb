@@ -17,8 +17,9 @@ class WeatherApi
   end
 
   def call
-    api_response = Rails.cache.fetch("#{CACHE_KEY}/#{zip_code}", expires_in: CACHE_EXPIRY)
     cache_hit = false
+
+    api_response = Rails.cache.fetch("#{CACHE_KEY}/#{zip_code}", expires_in: CACHE_EXPIRY)
 
     if api_response
       cache_hit = true

@@ -7,8 +7,4 @@ class WeatherReport
     @zip_code = zip_code
     @weather_api_response = WeatherApi.call(zip_code:)
   end
-
-  def window
-    WeatherApi::FORECAST_DAYS
-  end
 end
